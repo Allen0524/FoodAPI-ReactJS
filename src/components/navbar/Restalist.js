@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import RestaItem from './RestaItem';
 
 function Restalist(){
+
     return(
-        <div></div>
+        <div className="wrap-navlist">
+            <RestaItem/>
+        </div>
     )
 }
 

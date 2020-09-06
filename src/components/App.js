@@ -1,8 +1,19 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import Map from './Map';
 import Navbar from './Navbar';
 
+
 function App(){
+
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch({
+      type:"FETCH_DATA"
+    })
+  },[])
+
+  const loading = useSelector(state=>state.loading)
 
   return(
     <Fragment>
@@ -23,8 +34,8 @@ function App(){
         </div>
       </div>
       <div className="container">
+        {loading?<Navbar/>:null}
         <Map/>
-        <Navbar/>
       </div>
     </Fragment>
   );
